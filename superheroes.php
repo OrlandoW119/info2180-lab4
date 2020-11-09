@@ -70,3 +70,23 @@ $superheroes = [
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+
+
+<?php $q=$_GET['query'];?>
+
+<?php if (empty($q)){?>
+        <ul>
+        <?php foreach(superheroes as superhero){?>
+            <li><?=superheroes['alias'];?></li>
+        <?php }?>
+        </ul>
+    <?php } else { ?>
+        <?php foreach($superheroes as $superhero){ ?>
+            <?php if( $q==$superhero['alias'] || $q==$superhero['name'])){ ?>
+                <h3><?=$superhero['alias'];?></h3>
+                <h4><?=$superhero['name'];?></h4>
+                <p><?=$superhero['biography'];?></p>
+           <?php } ?>
+        <?php } ?>
+    <?php } ?>
+        
